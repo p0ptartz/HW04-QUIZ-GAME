@@ -1,39 +1,28 @@
 // create quiz questions/answers/correct answer object
 
+
 var quizQuestions = [
     {
         question: "Dinosaurs were: ",
-        choices: ["BIG",
-            "Old",
-            "Placed on Earth to test Man's faith in God",
-            "Scary :("],
-        correctAnswer: 3,
+        choices: ["BIG", "Old", "Placed on Earth to test Man's faith in God", "Scary :("],
+        correctAnswer: "Placed on Earth to test Man's faith in God"
     },
     {
         question: "Donald Trump is: ",
-        a: "Dumb",
-        b: "Really, REALLY dumb",
-        c: "Orange",
-        d: "America's only hope to stop the baby-eating pedophiliac Elite",
-        correctAnswer: 4,
+        choices: ["Dumb", "Really, REALLY dumb", "Orange", "America's only hope to stop the baby-eating pedophiliac Elite"],
+        correctAnswer: "America's only hope to stop the baby-eating pedophiliac Elite"
     },
     {
         question: "The Earth is: ",
-        a: "Flat",
-        b: "A Planet",
-        c: "A star",
-        d: "A Moon",
-        correctAnswer: 1,
+        choices: ["A Moon", "Flat", "A star", "A Planet"],
+        correctAnswer: "Flat"
     },
     {
         question: "Obama was: ",
-        a: "A president",
-        b: "A nice guy",
-        c: "Smart",
-        d: "A blood sucking Reptilian put here to control the weather and cause civil unrest",
-        correctAnswer: 4,
-    },
-]
+        choices: ["A president", "A nice guy", "Smart", "A blood sucking Reptilian put here to control the weather and cause civil unrest"],
+        correctAnswer: "A blood sucking Reptilian put here to control the weather and cause civil unrest"
+    }
+];
 
 // store variables for query select
 
@@ -55,57 +44,46 @@ var currentQuestion = 0;
 timer.innerHTML = 60
 
 
-// function to start the quiz
-startQuiz()
-function startQuiz() {
+// add event listener to remove directions and start quiz/timer
+startButton.addEventListener("click", function () {
+    startTimer()
 
-    // add event listener to remove directions and start quiz/timer
-    startButton.addEventListener("click", function () {
-        game.style.display = "block"
-        directions.style.display = "none"
-        var count = 60
-        var countdown = setInterval(function () {
-            count--
-            timer.innerHTML = count;
+})
 
-            if (count === 0) {
-                clearInterval(countdown);
-                game.style.display = "none"
-            }
-        }, 1000)
-    })
+// function to start the timer countdown
+function startTimer() {
+    game.style.display = "block"
+    directions.style.display = "none"
+    var count = 60
+    var countdown = setInterval(function () {
+        count--
+        timer.innerHTML = count;
 
-    // loading the quiz data 
-    var currentData = quizQuestions[currentQuestion]
-
-    questionElement.innerHTML = currentData.question
-    aText.innerHTML = currentData.a
-    bText.innerHTML = currentData.b
-    cText.innerHTML = currentData.c
-    dText.innerHTML = currentData.d
-}
-
-// needed a for loop so i can move to the next question when pressing any answer button.  THIS TOOK ME FOREVER :(
-
-var answerButton = document.querySelectorAll(".answer-btn")
-
-for (i = 0; i < answerButton.length; i++) {
-    answerButton[i].addEventListener("click", function (event, answer) {
-
-        // need to deduct time if answer is wrong as well as change wrong answer color to red and correct to green
-
-        // if (answer !== quizQuestions[currentQuestion].correctAnswer) {
-        //     event.target.setAttribute("style", "background-color: red")
-        // } else {
-        //     event.target.setAttribute("style", "background-color: green")
-        // }
-
-        // this moves to next question
-        currentQuestion++
-        startQuiz()
-    })
+        if (count === 0) {
+            clearInterval(countdown);
+            game.style.display = "none"
+        }
+    }, 1000)
 
 }
+
+function showQuestions() {
+    for (let i = 0; i < quizQuestions.length; i++) {
+        let element = quizQuestions[i]
+        let choices = element.choices
+        console.log(element)
+        choices.map((choice, index) => {
+            console.log(choice)
+        })
+    }
+}
+
+
+
+
+
+
+
 
 
 

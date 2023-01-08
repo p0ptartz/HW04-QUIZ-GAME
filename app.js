@@ -33,13 +33,14 @@ var timer = document.querySelector(".count")
 // variables to select question/answers
 var questionElement = document.querySelector("#question")
 var choicesList = document.querySelector("#choices");
+var enterName = document.querySelector(".enter-name")
 // variable to start the index
 var currentQuestion = 0;
 var count = 60
 var countdown;
 // setting the timer amount
 timer.innerHTML = 60
-
+enterName.classList.add("hide")
 
 // add event listener to remove directions and start quiz/timer
 startButton.addEventListener("click", function () {
@@ -59,44 +60,56 @@ startButton.addEventListener("click", function () {
 // function to stop the timer countdown
 function endGame() {
     clearInterval(countdown);
-
-
+    choicesList.classList.add("hide")
+    questionElement.classList.add("hide")
+    enterName.classList.remove("hide")
 }
 
 function showQuestions() {
     questionElement.textContent = quizQuestions[currentQuestion].question;
+
     quizQuestions[currentQuestion].choices.forEach(function (choice) {
         var choiceElement = document.createElement("li");
         choiceElement.textContent = choice;
         choicesList.appendChild(choiceElement)
+
         choiceElement.addEventListener("click", function () {
 
             if (currentQuestion === quizQuestions.length - 1) {
-                endGame();
-                // deduct time if answer is wrong. 
+                setTimeout(function () {
+                    endGame();
+                }, 700);
+
             }
+            // deduct time if answer is wrong
             else if (choice !== quizQuestions[currentQuestion].correctAnswer) {
-                count -= 10;
-                choicesList.innerHTML = "";
-                currentQuestion++;
-                showQuestions()
+                // delay questions from quickly going to next
+                setTimeout(function () {
+                    count -= 10;
+                    choicesList.innerHTML = "";
+                    currentQuestion++;
+                    showQuestions()
+                }, 700);
+                // change background color to red
+                choiceElement.style.backgroundColor = "red";
             }
             else {
-                // Clear the choices 
-                choicesList.innerHTML = "";
-                // Show the next question
-                currentQuestion++;
-                showQuestions()
+                setTimeout(function () {
+                    choicesList.innerHTML = "";
+                    currentQuestion++;
+                    showQuestions()
+                }, 700);
+                choiceElement.style.backgroundColor = "green";
             }
         })
     })
 }
 
+function evaluate() {
+
+}
 
 
-// function evaluate() {
-//     
-// }
 
 
 

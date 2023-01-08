@@ -1,0 +1,31 @@
+:root{
+    font-size: 62.5%;
+    background-image: url("https://i.ebayimg.com/images/g/q94AAOSw68Zch50g/s-l1600.jpg");
+    background-size: cover;
+}
+
+body {
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 4.5rem;
+}
+
+.btns {
+    display: flex;
+width: 100vw;
+justify-content: center;
+align-items: center;
+}
+
+.back-btn,
+.clear-btn {
+    width: 15vw;
+    height: 5vh;
+    margin: 10px;
+    cursor: pointer;
+}

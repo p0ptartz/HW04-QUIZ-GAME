@@ -66,6 +66,7 @@ align-items: center;
     width: 170px;
     margin-top: 30px;
     font-size: 1.8rem;
+    cursor: pointer;
 }
 
 .game {
@@ -88,7 +89,7 @@ align-items: center;
     list-style: none;
     margin: 5px;
     padding: 7px;
-    background-color: rgb(204, 241, 229);
+    background-color: rgba(204, 241, 229, 0.84);
     cursor: pointer;
     border: 1px solid rgb(208, 208, 208);
     box-shadow: 2px 2px rgb(164, 164, 164);
@@ -96,11 +97,11 @@ align-items: center;
 }
 
 #choices li:hover {
-    background-color: rgb(190, 255, 235);
+    background-color: rgba(190, 255, 235, 0.883);
 }
 
 #choices li:active{
-    background-color: rgb(174, 255, 229);
+    background-color: rgba(174, 255, 229, 0.922);
     box-shadow: 0px 0px 10px rgb(255, 241, 241);
 }
 
@@ -113,6 +114,14 @@ align-items: center;
 
 .correct {
     background-color: green;
+}
+
+.enter-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
 }
 
 

@@ -46,7 +46,6 @@ startButton.addEventListener("click", function () {
     countdown = setInterval(function () {
         count--
         timer.innerHTML = count;
-
         if (count <= 0) {
             endGame();
         }
@@ -59,8 +58,8 @@ startButton.addEventListener("click", function () {
 
 // function to stop the timer countdown
 function endGame() {
-
     clearInterval(countdown);
+
 
 }
 
@@ -74,8 +73,9 @@ function showQuestions() {
 
             if (currentQuestion === quizQuestions.length - 1) {
                 endGame();
-                // deduct time if answer is wrong.  originally written as a function but unsure how to place the function properly
-            } else if (choice !== quizQuestions[currentQuestion].correctAnswer) {
+                // deduct time if answer is wrong. 
+            }
+            else if (choice !== quizQuestions[currentQuestion].correctAnswer) {
                 count -= 10;
                 choicesList.innerHTML = "";
                 currentQuestion++;
@@ -93,14 +93,9 @@ function showQuestions() {
 }
 
 
-// i wrote this function first but not sure where to place it
+
 // function evaluate() {
-//     if (choice !== quizQuestions[currentQuestion].correctAnswer) {
-//         count -= 10;
-//         choicesList.innerHTML = "";
-//         currentQuestion++;
-//         showQuestions()
-//     }
+//     
 // }
 
 

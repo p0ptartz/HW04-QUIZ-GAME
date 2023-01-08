@@ -17,14 +17,7 @@
         <a href="highscore.html">HIGH SCORES</a>
         <p>TIMER: <span class="count">0</span> </p>
     </div>
-    <section class="game">
-        <div>
-            <p id="question"></p>
-        </div>
-        <div class="answers">
 
-        </div>
-    </section>
     <section class="container">
         <div class="directions">
             <p>Begin the KWiZ by pressing the start button. But BEWARE! Answer a question wrong, and time will be
@@ -34,8 +27,19 @@
         <div class="start-game">
             <button class="start-button">START</button>
         </div>
-    </section>
 
+    </section>
+    <section class="game hide">
+        <div>
+            <p id="question"></p>
+        </div>
+        <div class="answers">
+            <ul id="choices"></ul>
+        </div>
+    </section>
+    <section>
+        <!-- final screen will be shown and input for initials -->
+    </section>
     <script src="app.js"></script>
 </body>
 

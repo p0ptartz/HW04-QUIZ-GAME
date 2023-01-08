@@ -76,6 +76,12 @@ function showQuestions() {
         choiceElement.addEventListener("click", function () {
 
             if (currentQuestion === quizQuestions.length - 1) {
+                if (choice !== quizQuestions[currentQuestion].correctAnswer) {
+                    count -= 10
+                    choiceElement.style.backgroundColor = "red";
+                } if (choice === quizQuestions[currentQuestion].correctAnswer) {
+                    choiceElement.style.backgroundColor = "green";
+                }
                 setTimeout(function () {
                     endGame();
                 }, 700);

@@ -38,12 +38,18 @@ var enterName = document.querySelector(".enter-name")
 var currentQuestion = 0;
 var count = 60
 var countdown;
-// setting the timer amount
-timer.innerHTML = 60
+
 enterName.classList.add("hide")
+// variable for highscore inputs
+var nameInput = document.querySelector("#name-input")
+var submitButton = document.querySelector("#submit-button")
+var clearScore = document.querySelector("#clear-btn")
+var finalScore = document.querySelector("#final-score")
 
 // add event listener to remove directions and start quiz/timer
 startButton.addEventListener("click", function () {
+    // setting the timer amount
+    timer.innerHTML = 60
     countdown = setInterval(function () {
         count--
         timer.innerHTML = count;
@@ -55,6 +61,7 @@ startButton.addEventListener("click", function () {
     directions.classList.add("hide");
     game.classList.remove("hide");
     showQuestions();
+
 })
 
 // function to stop the timer countdown
@@ -63,6 +70,8 @@ function endGame() {
     choicesList.classList.add("hide")
     questionElement.classList.add("hide")
     enterName.classList.remove("hide")
+    // stores the the time remaining 
+    finalScore.textContent = count
 }
 
 function showQuestions() {
@@ -96,7 +105,7 @@ function showQuestions() {
                     currentQuestion++;
                     showQuestions()
                 }, 700);
-                // change background color to red
+                // change background color to red 
                 choiceElement.style.backgroundColor = "red";
             }
             else {
@@ -111,9 +120,36 @@ function showQuestions() {
     })
 }
 
-function evaluate() {
+// function evaluate() {
+// i think i could have made a function for right/wrong answers instead of directly in the event listener?
+// }
 
-}
+// game over screen to sotre data to local storage and link to highscore page
+
+submitButton.addEventListener("click", function () {
+
+    localStorage.setItem("score", finalScore.textContent);
+    localStorage.setItem("name", nameInput.value)
+    if (nameInput.value === "") {
+        alert("ENTER A NAME YA SILLY GOOSE")
+        return null
+    }
+
+    setTimeout(function () {
+        window.location.href = "http://127.0.0.1:5500/highscore.html"
+    }, 300)
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 

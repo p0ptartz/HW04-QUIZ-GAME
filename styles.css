@@ -108,13 +108,6 @@ align-items: center;
 #choices li::selection {
     background: transparent;
 }
-.incorrect {
-    background-color:  red;
-}
-
-.correct {
-    background-color: green;
-}
 
 .enter-name{
     display: flex;

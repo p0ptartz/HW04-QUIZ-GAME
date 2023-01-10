@@ -25,7 +25,7 @@ var quizQuestions = [
 ];
 
 // store variables for query select
-
+var startGame = document.querySelector(".start-game")
 var startButton = document.querySelector(".start-button")
 var game = document.querySelector(".game")
 var directions = document.querySelector(".container")
@@ -43,7 +43,6 @@ enterName.classList.add("hide")
 // variable for highscore inputs
 var nameInput = document.querySelector("#name-input")
 var submitButton = document.querySelector("#submit-button")
-var clearScore = document.querySelector("#clear-btn")
 var finalScore = document.querySelector("#final-score")
 
 // add event listener to remove directions and start quiz/timer
@@ -53,13 +52,16 @@ startButton.addEventListener("click", function () {
     countdown = setInterval(function () {
         count--
         timer.innerHTML = count;
+        // when timer gets to 0 end game function runs
         if (count <= 0) {
             endGame();
         }
     }, 1000)
-
+    // adds or remoces hide class to no longer display on screen
     directions.classList.add("hide");
     game.classList.remove("hide");
+    startGame.classList.add("hide")
+    // questions will appear 
     showQuestions();
 
 })
@@ -74,14 +76,18 @@ function endGame() {
     finalScore.textContent = count
 }
 
+// function to show questions
 function showQuestions() {
+    // locates the current question value index
     questionElement.textContent = quizQuestions[currentQuestion].question;
 
+    // for each choice value create an li 
     quizQuestions[currentQuestion].choices.forEach(function (choice) {
         var choiceElement = document.createElement("li");
         choiceElement.textContent = choice;
         choicesList.appendChild(choiceElement)
 
+        // when clicking the li choices we deduct 10 seconds when question is wrong and change that background color to red, or to green if correct
         choiceElement.addEventListener("click", function () {
 
             if (currentQuestion === quizQuestions.length - 1) {
@@ -120,25 +126,29 @@ function showQuestions() {
     })
 }
 
-// function evaluate() {
-// i think i could have made a function for right/wrong answers instead of directly in the event listener?
-// }
-
-// game over screen to sotre data to local storage and link to highscore page
 
 submitButton.addEventListener("click", function () {
+    // get the current names scores and from local storage 
+    let names = JSON.parse(localStorage.getItem("names")) || [];
+    let scores = JSON.parse(localStorage.getItem("scores")) || [];
 
-    localStorage.setItem("score", finalScore.textContent);
-    localStorage.setItem("name", nameInput.value)
+    // adding inputs into names (local storage)
+    names.push(nameInput.value);
+    scores.push(finalScore.textContent);
+
     if (nameInput.value === "") {
         alert("ENTER A NAME YA SILLY GOOSE")
         return null
     }
+    // turns array into strings in local storage
+    localStorage.setItem("scores", JSON.stringify(scores));
+    localStorage.setItem("names", JSON.stringify(names));
 
+    // brings user to highscores page
     setTimeout(function () {
         window.location.href = "http://127.0.0.1:5500/highscore.html"
     }, 300)
-})
+});
 
 
 

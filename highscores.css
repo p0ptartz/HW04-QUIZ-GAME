@@ -1,46 +1,59 @@
 :root{
-    font-size: 62.5%;
     background-image: url("https://i.ebayimg.com/images/g/q94AAOSw68Zch50g/s-l1600.jpg");
     background-size: cover;
+    font-size: 62.5%;
 }
 
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     
 }
 
 body {
+    align-items: center;
     display: flex;  
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 h1 {
-    font-size: 4.5rem;
+    color: transparent;
+    font-size: 5rem;
+    letter-spacing: 3px;
+    margin-top: 5%;
+    text-shadow: 0px -3px 3px rgb(205, 47, 74), 3px 0 1px rgb(120, 168, 240);
 }
 
 .btns {
+    align-items: center;
     display: flex;
-width: 100vw;
-justify-content: center;
-align-items: center;
+    justify-content: center;
+    width: 100vw;
 }
 
 .name-score {
-    height: 40vh;
-    width: 100vw;
+    align-items: start;
+    background-color: rgba(231, 255, 255, 0.847);
+    border-radius: 30px 30px 0 0;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     font-size: 3rem;
+    min-height: 20vh;
+    justify-content: space-evenly;
     line-height: 1.4;
+    list-style: none;
+    margin-top: 10%;
     width: 50vw;
+
 }
 
+.btns{
+    background-color: rgba(186, 233, 233, 0.847);
+    border-radius: 0px 0px 30px 30px;
+    width: 50vw;
+}
 
 h3 {
     text-decoration: underline;
@@ -49,20 +62,20 @@ h3 {
 
 #back-btn,
 .clear-btn {
-    width: 15vw;
-    height: 5vh;
-    margin: 10px;
+    align-items: center;
     background-color: rgba(204, 241, 229, 0.84);
-    cursor: pointer;
     border: 1px solid rgb(208, 208, 208);
     box-shadow: 2px 2px rgb(164, 164, 164);
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-size: 2.2rem;
+    height: 5vh;
+    justify-content: center;
+    margin: 10px;
     text-align: center;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.2rem;
-    color: black;
+    width: 15vw;
 }
 
 
@@ -76,4 +89,6 @@ h3 {
     background-color: rgba(174, 255, 229, 0.922);
     box-shadow: 0px 0px 10px rgb(255, 241, 241);
 }
+
+
 

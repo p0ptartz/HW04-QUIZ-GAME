@@ -10,41 +10,43 @@
 </head>
 
 <body>
-
-    <div class="title">
-        <h1>KWiZ GaME</h1>
-    </div>
-    <div class="score-timer">
-        <a id="high-score-html" href="highscore.html">HIGH SCORES</a>
-        <p>TIMER: <span class="count">0</span> </p>
-    </div>
-    <section class="enter-name">
-        <!-- final screen will be shown and input for initials -->
-        <h2>GaME OVeR</h2>
-        <p>YOUR FINAL SCORE IS: <span id="final-score">420</span></p>
-        <input type="text" id="name-input" placeholder="Enter your name">
-        <button id="submit-button">Submit</button>
-    </section>
-    <section class="container">
-        <div class="directions">
-            <p>Begin the KWiZ by pressing the start button. But BEWARE! Answer a question wrong, and time will be
-                deducted.The game ends when the timer reaches 0. GOOD LUCK!
-            </p>
+    <main>
+        <div class="title">
+            <h1>KWiZ GaME</h1>
         </div>
+        <div class="score-timer">
+            <a id="high-score-html" href="highscore.html">HIGH SCORES</a>
+            <p>TIMER: <span class="count">0</span> </p>
+
+
+        </div>
+        <section class="container">
+            <div class="directions">
+                <p>Begin the KWiZ by pressing the start button. But BEWARE! Answer a question wrong, and time will be
+                    deducted.The game ends when the timer reaches 0. GOOD LUCK!
+                </p>
+            </div>
+        </section>
         <div class="start-game">
             <button class="start-button">START</button>
         </div>
+        <section class="enter-name">
+            <!-- final screen will be shown and input for initials -->
+            <h2>GaME OVeR</h2>
+            <p>YOUR FINAL SCORE IS: <span id="final-score">420</span></p>
+            <input type="text" id="name-input" placeholder="Enter your name">
+            <button id="submit-button">Submit</button>
+        </section>
 
-    </section>
-    <section class="game hide">
-        <div>
-            <p id="question"></p>
-        </div>
-        <div class="answers">
-            <ul id="choices"></ul>
-        </div>
-    </section>
-
+        <section class="game hide">
+            <div>
+                <p id="question"></p>
+            </div>
+            <div class="answers">
+                <ul id="choices"></ul>
+            </div>
+        </section>
+    </main>
     <script src="app.js"></script>
 </body>
 

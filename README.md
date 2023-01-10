@@ -4,7 +4,9 @@
 A responsive quiz game built with HTML, CSS and Vanilla JavaScript.  Users names and scores will be stored locally and displayed on a secondary HTML page.  
 
 SiLLy quEStionS with siLLieR answerZzZz.  g00d lucK!
+
 #
+
 ## Screenshots:
 <details>
 <summary>Starting Page</summary>
@@ -30,3 +32,5 @@ SiLLy quEStionS with siLLieR answerZzZz.  g00d lucK!
 #
 
 ## Live Link: 
+
+[THIS IS THE LINK](https://p0ptartz.github.io/HW04-QUIZ-GAME/)

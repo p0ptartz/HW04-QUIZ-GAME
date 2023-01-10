@@ -144,11 +144,14 @@ submitButton.addEventListener("click", function () {
     localStorage.setItem("scores", JSON.stringify(scores));
     localStorage.setItem("names", JSON.stringify(names));
 
-    // brings user to highscores page
-    setTimeout(function () {
-        window.location.href = "http://127.0.0.1:5500/highscore.html"
-    }, 300)
 });
+
+// brings user to highscores page added to onclik in html
+function setHighscore() {
+    setTimeout(function () {
+        window.location.href = "highscore.html"
+    }, 300)
+}
 
 
 
